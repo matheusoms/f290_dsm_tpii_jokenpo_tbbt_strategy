@@ -1,6 +1,6 @@
 package domain;
 
-public interface Algoritmo {-
+public interface Algoritmo {
     void executar(TipoAlgoritmo tipo);
 
 }

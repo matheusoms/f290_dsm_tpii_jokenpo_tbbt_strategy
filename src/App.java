@@ -6,22 +6,33 @@ import domain.Algoritmo;
 import domain.Jokenpo;
 import domain.Papel;
 import domain.Tesoura;
+import domain.Pedra;
+import domain.Lagarto;
+import domain.Spock;
 import domain.TipoAlgoritmo;
 
 public class App {
     
     public static void main(String[] args) throws Exception {
         System.out.println("Selecione o tipo");
+        System.out.println("1 - Papel");
+        System.out.println("2 - Tesoura");
+        System.out.println("3 - Pedra");
+        System.out.println("4 - Lagarto");
+        System.out.println("5 - Spock");
+
         Scanner s = new Scanner(System.in);
        //TODO: Criar uma função para converter 'int' em algoritmo;
        
-        Algoritmo papel = new Papel();
+        int escolha = s.nextInt();
+        
+        Algoritmo algoritmo = getAlgoritmo(escolha);
        //TODO: Gerar jogada randomica e converter em Enum;
         
         Integer random = new Random().nextInt(5) + 1;
         TipoAlgoritmo computador = TipoAlgoritmo.getTipoAlgoritmo(random);
         Jokenpo jokenpo = new Jokenpo();
-        jokenpo.setAlgoritmo(papel);
+        jokenpo.setAlgoritmo(algoritmo);
         jokenpo.jogar(computador);
 
         s.close();
