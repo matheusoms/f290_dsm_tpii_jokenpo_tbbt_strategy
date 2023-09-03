@@ -14,23 +14,24 @@ import domain.TipoAlgoritmo;
 public class App {
     
     public static void main(String[] args) throws Exception {
+        Scanner s = new Scanner(System.in);
         System.out.println("Selecione o tipo");
         System.out.println("1 - Papel");
         System.out.println("2 - Tesoura");
         System.out.println("3 - Pedra");
         System.out.println("4 - Lagarto");
         System.out.println("5 - Spock");
+        System.out.println();
 
-        Scanner s = new Scanner(System.in);
        //TODO: Criar uma função para converter 'int' em algoritmo;
        
         int escolha = s.nextInt();
-        
         Algoritmo algoritmo = getAlgoritmo(escolha);
        //TODO: Gerar jogada randomica e converter em Enum;
         
         Integer random = new Random().nextInt(5) + 1;
         TipoAlgoritmo computador = TipoAlgoritmo.getTipoAlgoritmo(random);
+        
         Jokenpo jokenpo = new Jokenpo();
         jokenpo.setAlgoritmo(algoritmo);
         jokenpo.jogar(computador);
